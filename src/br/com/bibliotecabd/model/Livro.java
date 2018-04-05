@@ -2,17 +2,21 @@ package br.com.bibliotecabd.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ForeignKey;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -31,35 +35,31 @@ public class Livro implements Serializable {
 	@Column(name="ID_LIVRO")
 	private long _id;
 	
-	@Column(name="Nome", length = 80,  nullable = false) 
-	private String _nome;
+	@Column(name="Título", length = 80,  nullable = false) 
+	private String _titulo;
 	
 	@Column(name="Data_Publicacao", nullable = true)
 	@Temporal(TemporalType.DATE)
 	private Date _dataPublicacao;
 	
-	@OneToOne(cascade=(CascadeType.ALL))
-	@JoinColumn(name="ID_AUTOR")
-	private Autor _autor;
+	@ManyToMany
+	@JoinTable(name="LIVRO_AUTOR",
+			joinColumns= {@JoinColumn(name="ID_LIVRO")},
+			inverseJoinColumns= {@JoinColumn(name="ID_AUTOR")})
+	private List<Autor> _autor;
 	
 	@OneToOne(cascade=(CascadeType.ALL))
 	@JoinColumn(name="ID_EDITORA")
 	private Editora _editora;
 	
-	
-	
-	
-	
 	public Livro() {}
 	
 	
-	
-	
-	public String get_nome() {
-		return _nome;
+	public String get_titulo() {
+		return _titulo;
 	}
-	public void set_nome(String _nome) {
-		this._nome = _nome;
+	public void set_titulo(String _titulo) {
+		this._titulo = _titulo;
 	}
 	public long get_id() {
 		return _id;
@@ -67,10 +67,10 @@ public class Livro implements Serializable {
 	public void set_id(long _id) {
 		this._id = _id;
 	}
-	public Autor get_autor() {
+	public List<Autor> get_autor() {
 		return _autor;
 	}
-	public void set_autor(Autor _autor) {
+	public void set_autor(List<Autor> _autor) {
 		this._autor = _autor;
 	}
 	public Date get_dataPublicacao() {

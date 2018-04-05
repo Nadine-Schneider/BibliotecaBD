@@ -82,5 +82,13 @@ public class Leitor implements Serializable{
 	public void setLivrosPegos(List<Livro> livrosPegos) {
 		this.livrosPegos = livrosPegos;
 	}
+	
+	
+	public void adicionaLivro(Livro l) {
+		if(l != null)
+		{
+			this.livrosPegos.add(l);
+		}
+	} 
 
 }
