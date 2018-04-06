@@ -48,9 +48,9 @@ public class Livro implements Serializable {
 			inverseJoinColumns= {@JoinColumn(name="ID_AUTOR")})
 	private List<Autor> _autor;
 	
-	@OneToOne(cascade=(CascadeType.ALL))
-	@JoinColumn(name="ID_EDITORA")
-	private Editora _editora;
+	
+	@Column(name="Editora", length = 80, nullable = false)
+	private String _editora;
 	
 	public Livro() {}
 	
@@ -79,10 +79,10 @@ public class Livro implements Serializable {
 	public void set_dataPublicacao(Date _dataPublicacao) {
 		this._dataPublicacao = _dataPublicacao;
 	}
-	public Editora get_editora() {
+	public String get_editora() {
 		return _editora;
 	}
-	public void set_editora(Editora _editora) {
+	public void set_editora(String _editora) {
 		this._editora = _editora;
 	}
 

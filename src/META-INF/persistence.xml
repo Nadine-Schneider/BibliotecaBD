@@ -8,9 +8,9 @@
 	<persistence-unit name="biblioteca_bd_persistence_unit">
 
 		<class>br.com.bibliotecabd.model.Autor</class>
-		<class>br.com.bibliotecabd.model.Editora</class>
 		<class>br.com.bibliotecabd.model.Livro</class>
 		<class>br.com.bibliotecabd.model.Leitor</class>
+		<class>br.com.bibliotecabd.model.Emprestimo</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		
 		<properties>

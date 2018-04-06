@@ -3,6 +3,7 @@ package br.com.bibliotecabd.model;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 
@@ -37,12 +39,16 @@ public class Leitor implements Serializable{
 	@Column(name="Telefone", nullable = false)
 	private String _telefone;
 	
-	@ManyToMany
+/*	@ManyToMany
 	@JoinTable(name="LIVRO_LEITOR",
 				joinColumns= {@JoinColumn(name="ID_LEITOR")},
 				inverseJoinColumns= {@JoinColumn(name="ID_LIVRO")})
-	private List<Livro> livrosPegos;
+	private List<Livro> _livrosPegos;*/
 	
+	@OneToMany(cascade=CascadeType.ALL)
+	private List<Emprestimo> _emprestimos;
+	
+
 	public Leitor() {}
 	public Leitor(String nome, String sobrenome, String telefone)
 	{
@@ -76,19 +82,25 @@ public class Leitor implements Serializable{
 	public void set_telefone(String _telefone) {
 		this._telefone = _telefone;
 	}
-	public List<Livro> getLivrosPegos() {
-		return livrosPegos;
+	public List<Emprestimo> get_emprestimos() {
+		return _emprestimos;
 	}
-	public void setLivrosPegos(List<Livro> livrosPegos) {
-		this.livrosPegos = livrosPegos;
+	public void set_emprestimos(List<Emprestimo> _emprestimos) {
+		this._emprestimos = _emprestimos;
 	}
-	
-	
-	public void adicionaLivro(Livro l) {
-		if(l != null)
-		{
-			this.livrosPegos.add(l);
-		}
-	} 
+//	public List<Livro> getLivrosPegos() {
+//		return _livrosPegos;
+//	}
+//	public void setLivrosPegos(List<Livro> livrosPegos) {
+//		this._livrosPegos = livrosPegos;
+//	}
+//	
+//	
+//	public void adicionaLivro(Livro l) {
+//		if(l != null)
+//		{
+//			this._livrosPegos.add(l);
+//		}
+//	} 
 
 }
