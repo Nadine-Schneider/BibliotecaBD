@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "Autor")
 
 @Entity
 public class Autor implements Serializable{

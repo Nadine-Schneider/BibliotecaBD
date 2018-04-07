@@ -1,6 +1,7 @@
 package br.com.bibliotecabd;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,9 +11,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.xml.bind.JAXBException;
 
 import br.com.bibliotecabd.model.Autor;
-
 import br.com.bibliotecabd.model.Emprestimo;
 import br.com.bibliotecabd.model.Leitor;
 import br.com.bibliotecabd.model.Livro;
@@ -136,7 +137,7 @@ public class Principal {
 	}
 	
 	@SuppressWarnings("serial")
-	public static void main(String[] args)
+	public static void main(String[] args) throws JAXBException, IOException
 	{
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("biblioteca_bd_persistence_unit");
 		EntityManager em = emf.createEntityManager();
@@ -171,6 +172,35 @@ public class Principal {
 		em.persist(leitorB);
 	
 		em.getTransaction().commit();
+		
+		
+		
+		
+		
+		//XML		
+		
+		Emprestimo emp = em.find(Emprestimo.class, 2L);
+		Autor aut = em.find(Autor.class, 2L);
+		Leitor lei = em.find(Leitor.class, 2L);
+		Livro liv = em.find(Livro.class, 2L);
+		
+		GerarXML gerarXml = new GerarXML();
+		gerarXml.gerarXmlEditora(emp);
+		gerarXml.gerarXmlAutor(aut);
+		gerarXml.gerarXmlLeitor(lei);
+		gerarXml.gerarXmlLivro(liv);
+		
+		//XSD
+		
+		GerarXSD gerarXsd = new GerarXSD();
+		gerarXsd.gerarXsdEditora();
+		gerarXsd.gerarXsdAutor();
+		gerarXsd.gerarXsdLeitor();
+		gerarXsd.gerarXsdLivro();
+		
+		
+		
+		
 		
 		
 		System.exit(0);

@@ -14,8 +14,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+import javax.xml.bind.annotation.XmlRootElement;
 
-
+@XmlRootElement(name = "Leitor")
 @Entity
 public class Leitor implements Serializable{
 	
