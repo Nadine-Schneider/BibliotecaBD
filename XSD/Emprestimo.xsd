@@ -1,0 +1,36 @@
+<?xml version="1.0" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="Autor" type="autor"/>
+
+  <xs:element name="Emprestimo" type="emprestimo"/>
+
+  <xs:element name="Livro" type="livro"/>
+
+  <xs:complexType name="emprestimo">
+    <xs:sequence>
+      <xs:element name="_dataEmprestimo" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="_id" type="xs:long"/>
+      <xs:element name="_livroEmprestado" type="livro" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="livro">
+    <xs:sequence>
+      <xs:element name="_autor" type="autor" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="_dataPublicacao" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="_editora" type="xs:string" minOccurs="0"/>
+      <xs:element name="_id" type="xs:long"/>
+      <xs:element name="_titulo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="autor">
+    <xs:sequence>
+      <xs:element name="_id" type="xs:long"/>
+      <xs:element name="_nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="_sobrenome" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

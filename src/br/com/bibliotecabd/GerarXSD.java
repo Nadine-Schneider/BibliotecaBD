@@ -13,7 +13,7 @@ import br.com.bibliotecabd.model.*;
 public class GerarXSD {
 	
 	public void gerarXsdEditora() throws JAXBException, IOException {
-		FileWriter writer = new FileWriter(".\\XSD\\Emprestimo.xsd");		
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XSD\\Emprestimo.xsd");		
 		JAXBContext jc = JAXBContext.newInstance(Emprestimo.class);
         jc.generateSchema(new SchemaOutputResolver() {        	 
             @Override
@@ -27,7 +27,7 @@ public class GerarXSD {
 	}
 	
 	public void gerarXsdAutor() throws JAXBException, IOException {
-		FileWriter writer = new FileWriter(".\\XSD\\Autor.xsd");		
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XSD\\Autor.xsd");		
 		JAXBContext jc = JAXBContext.newInstance(Autor.class);
         jc.generateSchema(new SchemaOutputResolver() {        	 
             @Override
@@ -42,7 +42,7 @@ public class GerarXSD {
 	
 	
 	public void gerarXsdLeitor() throws JAXBException, IOException {
-		FileWriter writer = new FileWriter(".\\XSD\\Leitor.xsd");		
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XSD\\Leitor.xsd");		
 		JAXBContext jc = JAXBContext.newInstance(Leitor.class);
         jc.generateSchema(new SchemaOutputResolver() {        	 
             @Override
@@ -57,7 +57,7 @@ public class GerarXSD {
 	
 	
 	public void gerarXsdLivro() throws JAXBException, IOException {
-		FileWriter writer = new FileWriter(".\\XSD\\Livro.xsd");		
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XSD\\Livro.xsd");		
 		JAXBContext jc = JAXBContext.newInstance(Livro.class);
         jc.generateSchema(new SchemaOutputResolver() {        	 
             @Override

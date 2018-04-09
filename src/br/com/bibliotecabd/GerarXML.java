@@ -16,7 +16,7 @@ public class GerarXML {
 	public void gerarXmlEditora(Emprestimo editora) throws JAXBException, IOException{
 		JAXBContext jContext = JAXBContext.newInstance(Emprestimo.class);
 		Marshaller marshal = jContext.createMarshaller();
-		FileWriter writer = new FileWriter(".\\XML\\Emprestimo.xml");
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XML\\Emprestimo.xml");
 		marshal.marshal(editora, writer);
 		System.out.println("Gerador o XML da Emprestimo");
 	}
@@ -24,7 +24,7 @@ public class GerarXML {
 	public void gerarXmlLivro(Livro livro) throws JAXBException, IOException{
 		JAXBContext jContext = JAXBContext.newInstance(Livro.class);
 		Marshaller marshal = jContext.createMarshaller();
-		FileWriter writer = new FileWriter(".\\XML\\Livro.xml");
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\\\XML\\Livro.xml");
 		marshal.marshal(livro, writer);
 		System.out.println("Gerador o XML do Livro");
 	}
@@ -32,7 +32,7 @@ public class GerarXML {
 	public void gerarXmlLeitor(Leitor leitor) throws JAXBException, IOException{
 		JAXBContext jContext = JAXBContext.newInstance(Leitor.class);
 		Marshaller marshal = jContext.createMarshaller();
-		FileWriter writer = new FileWriter(".\\XML\\Leitor.xml");
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XML\\Leitor.xml");
 		marshal.marshal(leitor, writer);
 		System.out.println("Gerador o XML do Leitor");
 	}
@@ -40,7 +40,7 @@ public class GerarXML {
 	public void gerarXmlAutor(Autor autor) throws JAXBException, IOException{
 		JAXBContext jContext = JAXBContext.newInstance(Autor.class);
 		Marshaller marshal = jContext.createMarshaller();
-		FileWriter writer = new FileWriter(".\\XML\\Autor.xml");
+		FileWriter writer = new FileWriter(".\\BibliotecaBD\\XML\\Autor.xml");
 		marshal.marshal(autor, writer);
 		System.out.println("Gerador o XML do Autor");
 	}

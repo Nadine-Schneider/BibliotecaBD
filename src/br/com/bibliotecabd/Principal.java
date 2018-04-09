@@ -174,7 +174,31 @@ public class Principal {
 		em.getTransaction().commit();
 		
 		
+	//JSON
 		
+		ArrayList<Autor> autor = new ArrayList<Autor>();
+		autor.add(a1);
+		autor.add(a2);
+		autor.add(a3);
+		autor.add(a4);
+		autor.add(a5);
+		autor.add(a6);
+		
+		ArrayList<Livro> livro = new ArrayList<Livro>();
+		livro.add(livro_1);
+		livro.add(livro_2);
+		livro.add(livro_3);
+		livro.add(livro_4);
+		livro.add(livro_5);
+		
+		ArrayList<Leitor> leitor = new ArrayList<Leitor>();
+		leitor.add(leitorA);
+		leitor.add(leitorB);
+		
+		GerarJSON geradorJson = new GerarJSON();
+		geradorJson.gerarJsonAutor(autor);
+		geradorJson.gerarJsonLivro(livro);
+		geradorJson.gerarJsonLeitor(leitor);	
 		
 		
 		//XML		
