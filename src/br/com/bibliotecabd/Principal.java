@@ -13,6 +13,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.xml.bind.JAXBException;
 
+import com.sun.javafx.collections.ArrayListenerHelper;
+
 import br.com.bibliotecabd.model.Autor;
 import br.com.bibliotecabd.model.Emprestimo;
 import br.com.bibliotecabd.model.Leitor;
@@ -195,11 +197,16 @@ public class Principal {
 		leitor.add(leitorA);
 		leitor.add(leitorB);
 		
+		ArrayList<Emprestimo> arrayEmprestimo = new ArrayList<Emprestimo>();
+		arrayEmprestimo.add(em.find(Emprestimo.class, 1L));
+		arrayEmprestimo.add(em.find(Emprestimo.class, 2L));
+		arrayEmprestimo.add(em.find(Emprestimo.class, 3L));
+		
 		GerarJSON geradorJson = new GerarJSON();
 		geradorJson.gerarJsonAutor(autor);
 		geradorJson.gerarJsonLivro(livro);
 		geradorJson.gerarJsonLeitor(leitor);	
-		
+		geradorJson.gerarJsonEmprestimo(arrayEmprestimo);
 		
 		//XML		
 		

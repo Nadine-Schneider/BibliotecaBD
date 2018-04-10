@@ -9,6 +9,7 @@ import javax.xml.bind.JAXBException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import br.com.bibliotecabd.model.Autor;
+import br.com.bibliotecabd.model.Emprestimo;
 import br.com.bibliotecabd.model.Leitor;
 import br.com.bibliotecabd.model.Livro;
 
@@ -33,4 +34,12 @@ public class GerarJSON {
 		FileWriter arquivoLeitor = new FileWriter(".\\BibliotecaBD\\JSON\\Leitor.json");
 		mapper.writeValue(arquivoLeitor, leitor);
 	}
+	
+	public void gerarJsonEmprestimo(ArrayList<Emprestimo> emprestimo) throws JAXBException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		FileWriter arquivoLeitor = new FileWriter(".\\BibliotecaBD\\JSON\\Emprestimo.json");
+		mapper.writeValue(arquivoLeitor, emprestimo);
+	}
+	
+	
 }
